@@ -45,11 +45,11 @@ class _TodoPageState extends State<TodoPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Edit TODO Item'),
+          title: Text('Edit TODO Text'),
           content: TextField(
             controller: _controller,
             decoration: InputDecoration(
-              hintText: 'Enter new text',
+              hintText: 'Enter new Text',
             ),
           ),
           actions: <Widget>[
