@@ -1,30 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:todo/Todo.dart';
-
+import 'package:todo/HomeScrren.dart';
 
 void main() {
-  runApp(MyApp());
-  // widget : class build by google
-  // vs class : class build by you
+  runApp(const CancerManagementApp());
 }
 
-/// Stateless => غير تفاعلية صفحات
-/// Stateful =>  صفحات االتفاعليه
+class CancerManagementApp extends StatelessWidget {
+  const CancerManagementApp({Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
- 
     return MaterialApp(
-debugShowCheckedModeBanner: false,
-
-home:TodoApp(),
-
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      home: const HomeScreen(),  // الصفحة الرئيسية
     );
-
-
-
   }
 }
-
