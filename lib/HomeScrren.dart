@@ -47,7 +47,8 @@ class HomeScreen extends StatelessWidget {
     );
   },
   style: ElevatedButton.styleFrom(
-    foregroundColor: Colors.white, backgroundColor: Colors.blue, // لون النص
+    foregroundColor: Colors.white,
+    backgroundColor:const Color(0xff263238), // لون النص
     padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16), // حجم التباعد الداخلي
     textStyle: const TextStyle(
       fontSize: 18, // حجم الخط
