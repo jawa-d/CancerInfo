@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/HomeScrren.dart';
+import 'package:todo/doctor_info_screen.dart';
 
 void main() {
   runApp(const CancerManagementApp());
