@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // استيراد مكتبة flutter_svg
 import 'package:todo/patient_info_screen.dart';
 
-class CancerInfoScreen extends StatelessWidget {
+class CancerInfoScreen extends StatefulWidget {
   const CancerInfoScreen({Key? key}) : super(key: key);
+
+  @override
+  _CancerInfoScreenState createState() => _CancerInfoScreenState();
+}
+
+class _CancerInfoScreenState extends State<CancerInfoScreen> with SingleTickerProviderStateMixin {
+  bool _visible = true;
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +34,31 @@ class CancerInfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cancer Information'),
         centerTitle: true,
-        leading: Icon(Icons.info_outline),
+        leading: const Icon(Icons.info_outline),
       ),
-      
       body: ListView(
         padding: const EdgeInsets.all(20.0),
         children: [
+          AnimatedOpacity(
+            opacity: _visible ? 1.0 : 0.0, // تدرج في الظهور
+            duration: const Duration(seconds: 1),
+            child: Container(
+              height: MediaQuery.of(context).size.height / 3,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color(0xff263238),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: SvgPicture.asset(
+                  'images/8412809_3907182.svg', // ضع مسار SVG الخاص بك
+                  width: 500,
+                  height: 500,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height:10),
           Container(
             height: MediaQuery.of(context).size.height / 3,
             width: double.infinity,
@@ -34,7 +77,8 @@ class CancerInfoScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 19,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        
+                         color: Colors.red,
                       ),
                     ),
                     TextSpan(
@@ -42,7 +86,7 @@ class CancerInfoScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 19,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                       color: Colors.white,
                       ),
                     ),
                     TextSpan(
@@ -50,7 +94,7 @@ class CancerInfoScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      color: Colors.red,
                       ),
                     ),
                     TextSpan(
@@ -58,7 +102,8 @@ class CancerInfoScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                       
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -93,6 +138,14 @@ class CancerInfoScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _visible = !_visible; // عكس حالة الظهور للاختفاء أو الظهور
+          });
+        },
+        child: const Icon(Icons.visibility),
       ),
     );
   }

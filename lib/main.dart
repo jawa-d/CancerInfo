@@ -18,7 +18,7 @@ class CancerManagementApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const CancerInfoScreen(),  // الصفحة الرئيسية
+      home: const HomeScreen(),  // الصفحة الرئيسية
     );
   }
 }

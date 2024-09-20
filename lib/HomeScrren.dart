@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // استيراد مكتبة flutter_svg
 import 'CancerInfoScreen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,25 +11,21 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cancer Patient Management'),
         centerTitle: true,
-        leading: Icon(Icons.abc_outlined),
+        leading: const Icon(Icons.info_outline),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Container(
-              //   width: 200, // Set a fixed width
-              //   height: 200, // Set a fixed height
-              //   decoration: BoxDecoration(
-              //     image: DecorationImage(
-              //       Svg('lib/Images/Illustrations/503.png'), // Path to PNG file
-              //       fit: BoxFit.contain, // Scale the image to fit within the container
-              //     ),
-              //   ),
-              // ),
+              // Using SvgPicture.asset to load SVG image
+              SvgPicture.asset(
+                'images/addProduct.svg', // تأكد من أن المسار صحيح
+                width: 200, // عرض الصورة
+                height: 200, // ارتفاع الصورة
+                fit: BoxFit.contain, // لضبط حجم الصورة داخل الـ Container
+              ),
               const SizedBox(height: 20),
               const Padding(
                 padding: EdgeInsets.all(16.0),
@@ -39,29 +36,28 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-            ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const CancerInfoScreen()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    foregroundColor: Colors.white,
-    backgroundColor:const Color(0xff263238), // لون النص
-    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16), // حجم التباعد الداخلي
-    textStyle: const TextStyle(
-      fontSize: 18, // حجم الخط
-      fontWeight: FontWeight.bold, // سمك الخط
-    ),
-    // shape: RoundedRectangleBorder(
-    //   borderRadius: BorderRadius.circular(10), // زوايا دائرية للزر
-    // ),
-    elevation: 5, // ظل الزر
-  ),
-  child: const Text('Continue'),
-),
-
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CancerInfoScreen(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: const Color(0xff263238), // لون الزر
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 32, vertical: 16), // حجم الزر
+                  textStyle: const TextStyle(
+                    fontSize: 18, // حجم الخط
+                    fontWeight: FontWeight.bold, // سمك الخط
+                  ),
+                  elevation: 5, // ظل الزر
+                ),
+                child: const Text('Continue'),
+              ),
             ],
           ),
         ),
