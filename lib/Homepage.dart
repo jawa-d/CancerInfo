@@ -47,6 +47,14 @@ class SplashScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 50), // ضبط الهوامش حول الزر
                     child: ElevatedButton(
                       onPressed: () {
+
+                  //Navigator.push(
+                   // context,
+                    // MaterialPageRoute(
+                    //  // builder: (context) => const (),
+                    // ),
+                 // );
+
                         // اضف التنقل إلى الشاشة التالية هنا
                       },
                       style: ElevatedButton.styleFrom(
