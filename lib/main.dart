@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/CancerInfoScreen.dart';
 import 'package:todo/HomeScrren.dart';
+import 'package:todo/Homepage.dart';
 import 'package:todo/doctor_info_screen.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class CancerManagementApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const HomeScreen(),  // الصفحة الرئيسية
+      home: const SplashScreen(),  // الصفحة الرئيسية
     );
   }
 }
