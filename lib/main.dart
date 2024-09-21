@@ -3,6 +3,7 @@ import 'package:todo/CancerInfoScreen.dart';
 import 'package:todo/HomeScrren.dart';
 import 'package:todo/Homepage.dart';
 import 'package:todo/Loginpage.dart';
+import 'package:todo/Loginpage2.dart';
 import 'package:todo/doctor_info_screen.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class CancerManagementApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home:  LoginPage(),  // الصفحة الرئيسية
+      home:  LoginPage2(),  // الصفحة الرئيسية
     );
   }
 }

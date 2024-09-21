@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // استيراد مكتبة flutter_svg
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo/Loginpage.dart'; // استيراد مكتبة flutter_svg
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -46,18 +47,14 @@ class SplashScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 50), // ضبط الهوامش حول الزر
                     child: ElevatedButton(
-                      onPressed: () {
-
-                  //Navigator.push(
-                   // context,
-                    // MaterialPageRoute(
-                    //  // builder: (context) => const (),
-                    // ),
-                 // );
-
-                        // اضف التنقل إلى الشاشة التالية هنا
-                      },
+                   onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
                       style: ElevatedButton.styleFrom(
+
                         minimumSize: const Size(200, 50), // عرض 200 وارتفاع 50
                         padding: const EdgeInsets.symmetric(vertical: 16), // تعديل الحشو
                         shape: RoundedRectangleBorder(
